@@ -23,7 +23,7 @@ the objective is still interpreted as a Taylor expansion.
    <http://arxiv.org/abs/1603.02754>`_.  During each split finding procedure, it iterates
    over all entries of input data.  It's more accurate (among other greedy methods) but
    slow in computation performance.  Also it doesn't support distributed training as
-   XGBoost employs row spliting data distribution while ``exact`` tree method works on a
+   XGBoost employs row splitting data distribution while ``exact`` tree method works on a
    sorted column format.  This tree method can be used with parameter ``tree_method`` set
    to ``exact``.
 
@@ -61,7 +61,7 @@ or ``gpu_hist`` should be preferred as weighted sketching doesn't make sense wit
 weights.  When using non-constant hessian objectives, sometimes ``approx`` yields better
 accuracy, but with slower computation performance.  Most of the time using ``(gpu)_hist``
 with higher ``max_bin`` can achieve similar or even superior accuracy while maintaining
-good performance.  However, as xgboost is largely driven by community effort, the actual
+good performance.  However, as XGBoost is largely driven by community effort, the actual
 implementations have some differences than pure math description.  Result might have
 slight differences than expectation, which we are currently trying to overcome.
 
@@ -72,7 +72,7 @@ Other Updaters
 1. ``Prune``: It prunes the existing trees.  ``prune`` is usually used as part of other
    tree methods.  To use pruner independently, one needs to set the process type to update
    by: ``{"process_type": "update", "updater": "prune"}``.  With this set of parameters,
-   during trianing, XGBOost will prune the existing trees according to 2 parameters
+   during training, XGBoost will prune the existing trees according to 2 parameters
    ``min_split_loss (gamma)`` and ``max_depth``.
 
 2. ``Refresh``: Refresh the statistic of built trees on a new training dataset.  Like the
